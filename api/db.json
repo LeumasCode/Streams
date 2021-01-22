@@ -1,0 +1,38 @@
+{
+  "streams": [
+    {
+      "title": "third ",
+      "description": "the third one",
+      "userId": {
+        "userId": "117290418117630157015"
+      },
+      "id": 12
+    },
+    {
+      "title": "new one ",
+      "description": "new one here",
+      "userId": {
+        "userId": "117290418117630157015"
+      },
+      "id": 13
+    },
+    {
+      "title": "check it",
+      "description": "ok",
+      "userId": "117290418117630157015",
+      "id": 14
+    },
+    {
+      "title": "programmatic navigation",
+      "description": "you should not see this",
+      "userId": "117290418117630157015",
+      "id": 15
+    },
+    {
+      "title": "new life",
+      "description": "a new life is good",
+      "userId": "117290418117630157015",
+      "id": 16
+    }
+  ]
+}
