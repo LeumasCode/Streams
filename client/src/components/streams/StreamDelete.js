@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "../Modal";
 import history from "../../history";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchStream } from "../../actions";
 
-const StreamDelete = () => {
+const StreamDelete = (props) => {
+  // const state = useSelector(state => state.)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchStream(props.match.params.id));
+  }, [props, dispatch]);
+
   const actions = (
     <React.Fragment>
       <button className="ui button negative">Delete</button>
