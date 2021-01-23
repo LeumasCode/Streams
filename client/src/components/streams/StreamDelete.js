@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchStream } from "../../actions";
 
 const StreamDelete = (props) => {
-  // const state = useSelector(state => state.)
+  const stream = useSelector((state) => state.streams[props.match.params.id]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,16 +19,17 @@ const StreamDelete = (props) => {
     </React.Fragment>
   );
 
+  const renderContent = !stream
+    ? `Are you sure you want to delete this stream`
+    : `Are you sure you want to delete the stream with title: ${stream.title}`;
+
   return (
-    <div>
-      stream delete
-      <Modal
-        title="Delete Stream"
-        content="Are you sure you want to delete the stream?"
-        actions={actions}
-        onDismiss={() => history.push("/")}
-      />
-    </div>
+    <Modal
+      title="Delete Stream"
+      content={renderContent}
+      actions={actions}
+      onDismiss={() => history.push("/")}
+    />
   );
 };
 
