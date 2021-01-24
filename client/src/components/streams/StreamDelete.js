@@ -11,7 +11,7 @@ const StreamDelete = ({ match }) => {
 
   useEffect(() => {
     dispatch(fetchStream(match.params.id));
-  }, [dispatch]);
+  }, [dispatch, match.params.id]);
 
   const actions = (
     <React.Fragment>
