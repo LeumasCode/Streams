@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
+import flv from "flv.js";
 import { fetchStream } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const StreamShow = ({ match }) => {
   const dispatch = useDispatch();
+  const videoRef = useRef();
 
   const stream = useSelector((state) => state.streams[match.params.id]);
 
@@ -11,13 +13,12 @@ const StreamShow = ({ match }) => {
     dispatch(fetchStream(match.params.id));
   }, [dispatch, match.params.id]);
 
-
-  
   if (!stream) {
     return <div>Loading...</div>;
   }
   return (
     <div>
+      <video ref={videoRef} style={{width: '100%'}} controls={true} />
       <h1>{stream.title}</h1>
       <h5>{stream.description}</h5>
     </div>
