@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import flv from "flv.js";
 import { fetchStream } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ const StreamShow = ({ match }) => {
   //TODO setting up flv player
   useEffect(() => {
     const buildPlayer = () => {
-      if ( !stream) {
+      if (!stream) {
         return;
       }
       const player = flv.createPlayer({
@@ -27,6 +27,7 @@ const StreamShow = ({ match }) => {
 
       player.attachMediaElement(videoRef.current);
       player.load();
+
     };
     buildPlayer();
   }, [stream, match.params.id]);
