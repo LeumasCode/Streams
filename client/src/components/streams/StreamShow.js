@@ -16,14 +16,20 @@ const StreamShow = ({ match }) => {
 
   //TODO setting up flv player
   useEffect(() => {
-    const player = flv.createPlayer({
-      type: "flv",
-      url: `http://localhost:8000/live/${match.params.id}.flv`,
-    });
+    const buildPlayer = () => {
+      if ( !stream) {
+        return;
+      }
+      const player = flv.createPlayer({
+        type: "flv",
+        url: `http://localhost:8000/live/${match.params.id}.flv`,
+      });
 
-    player.attachMediaElement(videoRef.current);
-    player.load();
-  }, []);
+      player.attachMediaElement(videoRef.current);
+      player.load();
+    };
+    buildPlayer();
+  }, [stream, match.params.id]);
 
   if (!stream) {
     return <div>Loading...</div>;
